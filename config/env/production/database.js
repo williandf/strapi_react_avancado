@@ -13,9 +13,7 @@ module.exports = ({ env }) => ({
                 database: config.database,
                 username: config.user,
                 password: config.password,
-                ssl: {
-                    rejectionUnathorized: false,
-                },
+                ssl: { rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
             },
             options: {
                 ssl: true,
